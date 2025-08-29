@@ -19,7 +19,7 @@ pub struct Credentials {
     pub updated_at: OffsetDateTime,
 }
 
-#[cfg_attr(feature = "validate", derive(valiator::Validate))]
+#[cfg_attr(feature = "validate", derive(validator::Validate))]
 #[derive(Deserialize, Debug)]
 pub struct SecureEmailAddress {
     pub encrypted_email_address: String,
@@ -27,7 +27,7 @@ pub struct SecureEmailAddress {
     pub hashed_email_address: String,
 }
 
-#[cfg_attr(feature = "validate", derive(valiator::Validate))]
+#[cfg_attr(feature = "validate", derive(validator::Validate))]
 #[derive(Deserialize, Debug)]
 pub struct CreateCredentials {
     pub user_id: Uuid,
@@ -36,7 +36,7 @@ pub struct CreateCredentials {
     pub hashed_password: String,
 }
 
-#[cfg_attr(feature = "validate", derive(valiator::Validate))]
+#[cfg_attr(feature = "validate", derive(validator::Validate))]
 #[derive(Deserialize, Debug)]
 pub struct CreateCredentialsAndUser {
     pub user: CreateUser,
@@ -51,7 +51,7 @@ pub struct CredentialsAndUser {
     pub user: User 
 }
 
-#[cfg_attr(feature = "validate", derive(valiator::Validate))]
+#[cfg_attr(feature = "validate", derive(validator::Validate))]
 #[derive(Deserialize, Debug)]
 pub struct UpdateCredentials {
     #[cfg_attr(feature = "validate", validate(nested))]
