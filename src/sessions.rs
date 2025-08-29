@@ -1,13 +1,12 @@
 use serde::{Deserialize, Serialize};
 use time::OffsetDateTime;
-// use ipnetwork::IpNetwork;
 use ipnet::IpNet;
 use uuid::Uuid;
 
 
 #[cfg_attr(feature = "db", derive(sqlx::Type))]
 #[cfg_attr(feature = "db", sqlx(type_name = "revokereason", rename_all = "snake_case"))]
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Clone)]
 #[serde(rename_all = "snake_case")]
 pub enum RevokeReason {
     Logout,
@@ -31,7 +30,7 @@ impl RevokeReason {
 }
 
 #[cfg_attr(feature = "db", derive(sqlx::FromRow))]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Session {
     pub id: Uuid,
     pub user_id: Uuid,

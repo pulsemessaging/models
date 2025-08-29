@@ -61,7 +61,7 @@ mod validator_fns {
 }
 
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Chat {
     pub id: Uuid,
     pub owner_id: Option<Uuid>,

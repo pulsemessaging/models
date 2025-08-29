@@ -6,7 +6,7 @@ use uuid::Uuid;
 use validator::Validate;
 
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Reaction {
     pub id: Uuid,
     pub user_id: Option<Uuid>,
@@ -20,7 +20,7 @@ pub struct CreateReaction {
 }
 
 #[cfg_attr(feature = "db", derive(sqlx::FromRow))]
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Message {
     pub id: Uuid,
     pub chat_id: Uuid,

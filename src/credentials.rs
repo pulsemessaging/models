@@ -10,7 +10,7 @@ use super::users::{User, CreateUser};
 // -- CREDENTIALS --
 
 #[cfg_attr(feature = "db", derive(sqlx::FromRow))]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Credentials {
     pub user_id: Uuid,
     pub encrypted_email_address: String,
