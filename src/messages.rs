@@ -2,6 +2,9 @@ use serde::{Serialize, Deserialize};
 use time::OffsetDateTime;
 use uuid::Uuid;
 
+#[cfg(feature = "validate")]
+use validator::Validate;
+
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Reaction {

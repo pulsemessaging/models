@@ -2,6 +2,9 @@ use serde::{Deserialize, Serialize};
 use time::OffsetDateTime;
 use uuid::Uuid;
 
+#[cfg(feature = "validate")]
+use validator::Validate;
+
 use super::users::{User, CreateUser};
 
 // -- CREDENTIALS --

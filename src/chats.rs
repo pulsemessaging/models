@@ -2,6 +2,9 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use time::OffsetDateTime;
 
+#[cfg(feature = "validate")]
+use validator::Validate;
+
 
 #[cfg(feature = "validate")]
 mod validator_fns {
