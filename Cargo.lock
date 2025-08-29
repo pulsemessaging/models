@@ -648,19 +648,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "ipnetwork"
-version = "0.20.0"
+name = "ipnet"
+version = "2.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf466541e9d546596ee94f9f69590f89473455f88372423e0008fc1a7daf100e"
-dependencies = [
- "serde",
-]
-
-[[package]]
-name = "ipnetwork"
-version = "0.21.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cf370abdafd54d13e54a620e8c3e1145f28e46cc9d704bc6d94414559df41763"
+checksum = "469fb0b9cefa57e3ef31275ee7cacb78f2fdca44e4765491884a2b119d4eb130"
 dependencies = [
  "serde",
 ]
@@ -991,7 +982,7 @@ dependencies = [
 name = "pulsemodels"
 version = "0.1.0"
 dependencies = [
- "ipnetwork 0.21.1",
+ "ipnet",
  "log",
  "serde",
  "serde_json",
@@ -1334,7 +1325,6 @@ dependencies = [
  "hashbrown",
  "hashlink",
  "indexmap",
- "ipnetwork 0.20.0",
  "log",
  "memchr",
  "once_cell",
@@ -1456,7 +1446,6 @@ dependencies = [
  "hkdf",
  "hmac",
  "home",
- "ipnetwork 0.20.0",
  "itoa",
  "log",
  "md-5",

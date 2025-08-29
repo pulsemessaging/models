@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 use time::OffsetDateTime;
-use ipnetwork::IpNetwork;
+// use ipnetwork::IpNetwork;
+use ipnet::IpNet;
 use uuid::Uuid;
 
 
@@ -43,7 +44,7 @@ pub struct Session {
     pub created_at: OffsetDateTime,
     #[serde(with = "time::serde::rfc3339")]
     pub expires_at: OffsetDateTime,
-    pub ip_address: Option<IpNetwork>,
+    pub ip_address: Option<IpNet>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -53,6 +54,6 @@ pub struct CreateSession {
     pub hashed_token: String,
     #[serde(with = "time::serde::rfc3339")]
     pub expires_at: OffsetDateTime,
-    pub ip_address: Option<IpNetwork>,
+    pub ip_address: Option<IpNet>,
 }
 
