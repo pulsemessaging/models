@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{Serialize, Deserialize};
 use time::OffsetDateTime;
 
 #[cfg(feature = "validate")]
@@ -12,7 +12,7 @@ fn default_limit() -> i64 {
 }
 
 #[cfg_attr(feature = "validate", derive(validator::Validate))]
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct ListQuery {
     #[serde(with = "time::serde::rfc3339")]
     #[serde(default = "default_before")]
