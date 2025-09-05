@@ -18,6 +18,6 @@ pub struct ListQuery {
     #[serde(default = "default_before")]
     pub before: OffsetDateTime,
     #[serde(default = "default_limit")]
-    #[cfg_attr(feature = "validate", validate(min = 0, max = 200))]
+    #[cfg_attr(feature = "validate", validate(range(min = 0, max = 200)))]
     pub limit: i64,
 }
