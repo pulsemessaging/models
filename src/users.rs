@@ -41,3 +41,11 @@ pub struct UpdateUser {
     #[serde(default)]
     pub profile_picture_url: NullableField<String>,
 }
+
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct UsersBatchResult {
+    pub users: Vec<User>,
+    pub not_found: Vec<Uuid>,
+}
+
