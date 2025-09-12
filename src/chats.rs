@@ -79,7 +79,7 @@ pub struct Chat {
     function = "validator_fns::validate_owner_is_participant",
     skip_on_field_errors = false
 )))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreateChat {
     pub id: Uuid,
     pub name: String,
@@ -101,7 +101,7 @@ pub struct CreateChat {
         skip_on_field_errors = false
     )
 ))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateChat {
     pub name: Option<String>,
     pub owner_id: Option<Uuid>,

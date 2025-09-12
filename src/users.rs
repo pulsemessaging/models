@@ -22,7 +22,7 @@ pub struct User {
 
 // Are these necessary?
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreateUser {
     pub id: Uuid,
     pub username: String,
@@ -31,7 +31,7 @@ pub struct CreateUser {
     pub profile_picture_url: Option<String>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateUser {
     pub username: Option<String>,
     #[serde(default)]

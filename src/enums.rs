@@ -1,10 +1,10 @@
-use serde::{Deserialize, Deserializer};
+use serde::{Deserialize, Deserializer, Serialize};
 
 // This enum allows null values to be specified as fields but be treated differently to missing
 // fields. This is achieved by a defaulting to a `Missing` enum value, reserving `Null` for truely
 // null values.
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub enum NullableField<T> {
     Missing,     // Field not provided in JSON
     Null,        // Field provided as null
@@ -70,4 +70,5 @@ where
         })
     }
 }
+
 

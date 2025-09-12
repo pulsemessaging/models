@@ -37,7 +37,7 @@ pub struct Message {
 
 
 #[cfg_attr(feature = "validate", derive(validator::Validate))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreateMessage {
     pub id: Uuid,
     pub author_id: Uuid,
@@ -47,7 +47,7 @@ pub struct CreateMessage {
 }
 
 #[cfg_attr(feature = "validate", derive(validator::Validate))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateMessage {
     pub author_id: Option<Uuid>,
     #[cfg_attr(feature = "validate", validate(length(min = 1)))]

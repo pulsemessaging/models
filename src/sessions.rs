@@ -46,7 +46,7 @@ pub struct Session {
     pub ip_address: Option<IpNet>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreateSession {
     pub id: Uuid,
     pub user_id: Uuid,

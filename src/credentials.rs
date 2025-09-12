@@ -23,7 +23,7 @@ pub struct Credentials {
 }
 
 #[cfg_attr(feature = "validate", derive(validator::Validate))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct SecureEmailAddress {
     pub encrypted_email_address: String,
     #[cfg_attr(feature = "validate", validate(length(min = 43, max = 43)))]
@@ -31,7 +31,7 @@ pub struct SecureEmailAddress {
 }
 
 #[cfg_attr(feature = "validate", derive(validator::Validate))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreateCredentials {
     pub user_id: Uuid,
     #[cfg_attr(feature = "validate", validate(nested))]
@@ -40,7 +40,7 @@ pub struct CreateCredentials {
 }
 
 #[cfg_attr(feature = "validate", derive(validator::Validate))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreateCredentialsAndUser {
     pub user: CreateUser,
     #[cfg_attr(feature = "validate", validate(nested))]
@@ -55,7 +55,7 @@ pub struct CredentialsAndUser {
 }
 
 #[cfg_attr(feature = "validate", derive(validator::Validate))]
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateCredentials {
     #[cfg_attr(feature = "validate", validate(nested))]
     pub email_address: Option<SecureEmailAddress>,
