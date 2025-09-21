@@ -65,7 +65,7 @@ mod validator_fns {
 pub struct Chat {
     pub id: Uuid,
     pub owner_id: Option<Uuid>,
-    pub name: String,
+    pub name: Option<String>,
     pub is_group: bool,
     pub participants: Vec<Uuid>,
     #[serde(with = "time::serde::rfc3339")]
@@ -82,7 +82,7 @@ pub struct Chat {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct CreateChat {
     pub id: Uuid,
-    pub name: String,
+    pub name: Option<String>,
     pub owner_id: Uuid,
     pub is_group: bool,
     #[cfg_attr(feature = "validate", validate(length(min = 2)))]
