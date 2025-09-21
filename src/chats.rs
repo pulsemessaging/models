@@ -5,6 +5,8 @@ use time::OffsetDateTime;
 #[cfg(feature = "validate")]
 use validator::Validate;
 
+use crate::enums::NullableField;
+
 
 #[cfg(feature = "validate")]
 mod validator_fns {
@@ -103,7 +105,7 @@ pub struct CreateChat {
 ))]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateChat {
-    pub name: Option<String>,
+    pub name: NullableField<String>,
     pub owner_id: Option<Uuid>,
     pub add_participants: Option<Vec<Uuid>>,
     pub remove_participants: Option<Vec<Uuid>>,
