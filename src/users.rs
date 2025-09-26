@@ -6,7 +6,7 @@ use uuid::Uuid;
 use crate::enums::NullableField;
 
 
-#[cfg_attr(feature = "db", derive(sqlx::FromRow, sqlx::Decode))]
+#[cfg_attr(feature = "db", derive(sqlx::FromRow, sqlx::Decode, sqlx::Type))]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct User {
     pub id: Uuid,
