@@ -63,7 +63,7 @@ mod validator_fns {
 }
 
 
-#[cfg_attr(feature = "db", derive(sqlx::FromRow))]
+#[cfg_attr(feature = "db", derive(sqlx::FromRow, sqlx::Decode))]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Chat {
     pub id: Uuid,
