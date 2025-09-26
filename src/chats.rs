@@ -5,7 +5,7 @@ use time::OffsetDateTime;
 #[cfg(feature = "validate")]
 use validator::Validate;
 
-use crate::enums::NullableField;
+use crate::{enums::NullableField, users::User};
 
 
 #[cfg(feature = "validate")]
@@ -69,7 +69,7 @@ pub struct Chat {
     pub owner_id: Option<Uuid>,
     pub name: Option<String>,
     pub is_group: bool,
-    pub participants: Vec<Uuid>,
+    pub participants: Vec<User>,
     #[serde(with = "time::serde::rfc3339")]
     pub created_at: OffsetDateTime,
     #[serde(with = "time::serde::rfc3339")]
