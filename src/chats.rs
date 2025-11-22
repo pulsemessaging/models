@@ -106,6 +106,7 @@ pub struct CreateChat {
 ))]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateChat {
+    #[serde(default, skip_serializing_if = "NullableField::is_missing")]
     pub name: NullableField<String>,
     pub owner_id: Option<Uuid>,
     pub add_participants: Option<Vec<Uuid>>,

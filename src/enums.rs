@@ -4,7 +4,7 @@ use serde::{Deserialize, Deserializer, Serialize};
 // fields. This is achieved by a defaulting to a `Missing` enum value, reserving `Null` for truely
 // null values.
 
-#[derive(Debug, Clone, PartialEq, Serialize)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum NullableField<T> {
     Missing,     // Field not provided in JSON
     Null,        // Field provided as null
@@ -72,3 +72,14 @@ where
 }
 
 
+impl <'s, T: Serialize> Serialize for NullableField<T> {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+        where
+            S: serde::Serializer {
+        match self {
+            NullableField::Value(value) => serializer.serialize_some(value),
+            NullableField::Null => serializer.serialize_none(),
+            NullableField::Missing => serializer.serialize_none() 
+        }
+    }
+}

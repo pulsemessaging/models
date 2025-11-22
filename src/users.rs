@@ -34,11 +34,11 @@ pub struct CreateUser {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateUser {
     pub username: Option<String>,
-    #[serde(default)]
+    #[serde(default, skip_serializing_if = "NullableField::is_missing")]
     pub display_name: NullableField<String>,
-    #[serde(default)]
+    #[serde(default, skip_serializing_if = "NullableField::is_missing")]
     pub bio: NullableField<String>,
-    #[serde(default)]
+    #[serde(default, skip_serializing_if = "NullableField::is_missing")]
     pub profile_picture_url: NullableField<String>,
 }
 
